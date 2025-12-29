@@ -1,0 +1,80 @@
+SQL INSERT INTO – SUMMARY
+========================
+
+1) Purpose
+----------
+
+The INSERT INTO statement is used to add new data (rows)
+into a table in a SQL database.
+
+
+2) Basic Syntax
+---------------
+
+INSERT INTO table_name (column1, column2, column3)
+VALUES (value1, value2, value3);
+
+
+3) Partial Insert (Recommended)
+-------------------------------
+
+You insert values only into specific columns.
+
+Example:
+INSERT INTO Commentaire (contenu, auteur, date_commentaire, id_article)
+VALUES ('Nice article', 'Youssef', '2025-01-10', 1);
+
+Explanation:
+- AUTO_INCREMENT columns are filled automatically
+- Columns not listed will use DEFAULT values or NULL
+- This method is safe and flexible
+
+
+4) AUTO_INCREMENT
+-----------------
+
+AUTO_INCREMENT is used to automatically generate
+a unique value for the primary key.
+
+Example:
+id_commentaire is generated automatically
+You should NOT insert it manually.
+
+
+5) Multiple Insert (Best Practice)
+----------------------------------
+
+You can insert multiple rows in one query.
+
+Example:
+INSERT INTO Commentaire (contenu, auteur, date_commentaire, id_article)
+VALUES
+('Great article', 'Ali', '2025-01-11', 1),
+('Very helpful', 'Sara', '2025-01-12', 2),
+('Thanks a lot', 'Omar', '2025-01-13', 3);
+
+
+6) Important Rules
+------------------
+
+- NOT NULL columns must have values
+- UNIQUE columns cannot have duplicate values
+- FOREIGN KEY values must exist in the referenced table
+- AUTO_INCREMENT columns must not be inserted manually
+
+
+7) Common Errors
+----------------
+
+- Inserting NULL into a NOT NULL column
+- Using a foreign key value that does not exist
+- Duplicate values in UNIQUE columns
+- Wrong data type for a column
+
+
+8) Conclusion
+-------------
+
+INSERT INTO is a fundamental SQL command used to add data
+into tables. Using partial insert and multiple insert
+is the best practice.

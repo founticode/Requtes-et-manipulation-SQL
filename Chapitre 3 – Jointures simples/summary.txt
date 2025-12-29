@@ -1,0 +1,142 @@
+SQL JOINS SUMMARY
+=================
+
+1) JOIN / INNER JOIN
+--------------------
+
+Definition:
+JOIN (or INNER JOIN) returns only the rows that exist in both tables.
+
+It is used when you want only matching data.
+
+
+Syntax:
+SELECT columns
+FROM table1
+JOIN table2 ON condition;
+
+
+Example:
+SELECT u.nom, a.titre
+FROM Utilisateur u
+JOIN Article a
+ON u.id_utilisateur = a.id_utilisateur;
+
+
+Explanation:
+This query returns users who have written articles.
+Users without articles are not included.
+
+
+2) LEFT JOIN
+------------
+
+Definition:
+LEFT JOIN returns all rows from the left table
+and the matching rows from the right table.
+
+If there is no match, the result is NULL.
+
+
+Syntax:
+SELECT columns
+FROM table1
+LEFT JOIN table2 ON condition;
+
+
+Example:
+SELECT u.nom, a.titre
+FROM Utilisateur u
+LEFT JOIN Article a
+ON u.id_utilisateur = a.id_utilisateur;
+
+
+Explanation:
+This query returns all users, including those
+who have not written any articles.
+
+
+3) RIGHT JOIN
+-------------
+
+Definition:
+RIGHT JOIN returns all rows from the right table
+and the matching rows from the left table.
+
+If there is no match, the result is NULL.
+
+
+Syntax:
+SELECT columns
+FROM table1
+RIGHT JOIN table2 ON condition;
+
+
+Example:
+SELECT u.nom, a.titre
+FROM Utilisateur u
+RIGHT JOIN Article a
+ON u.id_utilisateur = a.id_utilisateur;
+
+
+Explanation:
+This query returns all articles, even if the user
+information is missing.
+
+
+4) JOIN with WHERE (Filtering)
+------------------------------
+
+Definition:
+You can filter results after joining tables
+using the WHERE clause.
+
+
+Example:
+SELECT u.nom, a.titre
+FROM Utilisateur u
+JOIN Article a
+ON u.id_utilisateur = a.id_utilisateur
+WHERE a.date_publication >= '2024-05-01';
+
+
+Explanation:
+This query returns articles published after
+May 1, 2024, with their authors.
+
+
+5) Using Aliases
+----------------
+
+Definition:
+Aliases are short names used to simplify SQL queries.
+
+
+Example:
+Utilisateur u
+Article a
+Commentaire c
+
+
+Example with aliases:
+SELECT u.nom, a.titre
+FROM Utilisateur u
+JOIN Article a
+ON u.id_utilisateur = a.id_utilisateur;
+
+
+Explanation:
+Aliases make queries easier to read and write.
+
+
+SUMMARY
+-------
+
+- JOIN = INNER JOIN
+- INNER JOIN returns only matching rows
+- LEFT JOIN returns all rows from the left table
+- RIGHT JOIN returns all rows from the right table
+- Aliases simplify queries
+- WHERE filters results after a join
+
+SQL joins are essential for working with relational databases.

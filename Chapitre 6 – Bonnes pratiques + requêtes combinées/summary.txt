@@ -1,0 +1,69 @@
+SQL TRANSACTIONS – SUMMARY
+==========================
+
+1) Purpose
+----------
+
+SQL Transactions are used to execute multiple SQL
+operations as a single logical unit.
+
+They ensure data consistency and prevent partial
+changes when an error occurs.
+
+
+2) What is a Transaction?
+-------------------------
+
+A transaction is a sequence of SQL statements
+that are executed together.
+
+If all statements succeed → changes are saved
+If one statement fails → changes are canceled
+
+
+3) START TRANSACTION
+--------------------
+
+Purpose:
+Starts a new transaction block.
+
+Syntax:
+START TRANSACTION;
+
+Explanation:
+- All SQL commands after this are temporary
+- Changes are not saved immediately
+
+
+4) COMMIT
+---------
+
+Purpose:
+Saves all changes made during the transaction.
+
+Syntax:
+COMMIT;
+
+Explanation:
+- Confirms the transaction
+- All changes become permanent in the database
+
+
+5) ROLLBACK
+-----------
+
+Purpose:
+Cancels all changes made since START TRANSACTION.
+
+Syntax:
+ROLLBACK;
+
+Explanation:
+- Restores the database to its previous state
+- Used when an error occurs
+
+
+6) Transaction Example
+----------------------
+
+START TRANSACTION;

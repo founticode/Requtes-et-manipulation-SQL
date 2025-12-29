@@ -1,0 +1,150 @@
+SQL AGGREGATION & GROUP BY
+=========================
+
+1) Aggregation Functions
+------------------------
+
+Aggregation functions are used to perform calculations on multiple rows
+and return a single result.
+
+They are mainly used for data analysis.
+
+
+COUNT()
+-------
+
+Definition:
+COUNT() counts the number of rows.
+
+Example:
+SELECT COUNT(*) FROM Article;
+
+Explanation:
+This query returns the total number of articles in the Article table.
+
+
+MIN()
+-----
+
+Definition:
+MIN() returns the smallest value in a column.
+
+Example:
+SELECT MIN(date_publication) FROM Article;
+
+Explanation:
+This query returns the oldest publication date.
+
+
+MAX()
+-----
+
+Definition:
+MAX() returns the largest value in a column.
+
+Example:
+SELECT MAX(date_publication) FROM Article;
+
+Explanation:
+This query returns the most recent publication date.
+
+
+AVG()
+-----
+
+Definition:
+AVG() calculates the average of numeric values.
+
+Example:
+SELECT AVG(id_utilisateur) FROM Article;
+
+Explanation:
+This example shows how AVG works on a numeric column.
+(It is used only for learning purposes.)
+
+
+2) GROUP BY
+-----------
+
+Definition:
+GROUP BY is used to group rows that have the same values
+into summary rows.
+
+It is often used with aggregation functions.
+
+
+Example:
+SELECT id_utilisateur, COUNT(*) AS total_articles
+FROM Article
+GROUP BY id_utilisateur;
+
+Explanation:
+This query counts the number of articles written by each user.
+
+
+Important rule:
+Any column in the SELECT clause must be:
+- included in GROUP BY
+- or used inside an aggregation function
+
+
+3) WHERE vs HAVING
+------------------
+
+WHERE:
+- Filters rows
+- Applied before GROUP BY
+- Cannot be used with aggregation functions
+
+HAVING:
+- Filters groups
+- Applied after GROUP BY
+- Can be used with aggregation functions
+
+
+Example using WHERE:
+SELECT *
+FROM Article
+WHERE date_publication >= '2024-05-01';
+
+Explanation:
+This query filters articles before grouping.
+
+
+Example using HAVING:
+SELECT id_utilisateur, COUNT(*) AS total_articles
+FROM Article
+GROUP BY id_utilisateur
+HAVING total_articles > 1;
+
+Explanation:
+This query returns only users who have written more than one article.
+
+
+4) Complete Example
+-------------------
+
+SELECT id_utilisateur, COUNT(*) AS total_articles
+FROM Article
+WHERE date_publication IS NOT NULL
+GROUP BY id_utilisateur
+HAVING total_articles >= 1;
+
+Explanation:
+- Filters valid articles
+- Groups them by user
+- Returns users with at least one article
+
+
+SUMMARY
+-------
+
+- COUNT() counts rows
+- MIN() returns the smallest value
+- MAX() returns the largest value
+- AVG() calculates an average
+- GROUP BY groups rows
+- WHERE filters rows
+- HAVING filters groups
+
+Aggregation functions are essential for analyzing data in SQL.

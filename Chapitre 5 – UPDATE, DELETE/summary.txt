@@ -1,0 +1,116 @@
+SQL UPDATE & DELETE – SUMMARY
+=============================
+
+1) Purpose
+----------
+
+The UPDATE and DELETE commands are used to modify
+or remove existing records (rows) in a SQL table.
+They must be used carefully to avoid data loss.
+
+
+2) UPDATE Command
+-----------------
+
+Purpose:
+UPDATE is used to change one or more values
+in existing rows of a table.
+
+Syntax:
+UPDATE table_name
+SET column1 = value1, column2 = value2
+WHERE condition;
+
+
+Example:
+UPDATE Utilisateur
+SET email = 'new@email.com'
+WHERE id_utilisateur = 1;
+
+
+Explanation:
+- SET defines the new values
+- WHERE selects which rows will be updated
+- Only the matching rows are modified
+
+
+3) Updating Multiple Fields
+---------------------------
+
+Example:
+UPDATE Article
+SET titre = 'New Title',
+    date_publication = '2025-01-20'
+WHERE id_article = 2;
+
+
+4) Importance of WHERE (UPDATE)
+--------------------------------
+
+Without WHERE:
+UPDATE Article
+SET titre = 'Test';
+
+Result:
+All rows in the table will be updated.
+
+Rule:
+Always use WHERE to avoid updating all records.
+
+
+5) DELETE Command
+-----------------
+
+Purpose:
+DELETE is used to remove rows from a table.
+
+Syntax:
+DELETE FROM table_name
+WHERE condition;
+
+
+Example:
+DELETE FROM Commentaire
+WHERE id_commentaire = 3;
+
+
+6) Conditional vs Total Deletion
+--------------------------------
+
+Conditional deletion (Recommended):
+DELETE FROM Article
+WHERE id_utilisateur = 2;
+
+→ Deletes only specific rows
+
+Total deletion (Dangerous):
+DELETE FROM Article;
+
+→ Deletes all rows in the table
+
+
+7) Importance of WHERE (DELETE)
+--------------------------------
+
+Without WHERE:
+DELETE FROM Commentaire;
+
+Result:
+All data in the table is permanently deleted.
+
+
+8) Best Practices and Precautions
+---------------------------------
+
+- Always run a SELECT before UPDATE or DELETE
+- Prefer using primary keys (id)
+- Never run UPDATE or DELETE without WHERE
+- Make a backup before deleting important data
+
+
+9) Conclusion
+-------------
+
+UPDATE and DELETE are powerful SQL commands.
+When used with WHERE conditions, they allow
+safe and controlled data modification.

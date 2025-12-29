@@ -1,0 +1,107 @@
+SQL BASICS: SELECT, WHERE, ORDER BY
+=================================
+
+1) SELECT
+---------
+
+Definition:
+SELECT is used to retrieve data from a database table.
+You can select all columns or only specific columns.
+
+Syntax:
+SELECT column1, column2
+FROM table_name;
+
+Example:
+SELECT nom, email
+FROM Utilisateur;
+
+Explanation:
+This query retrieves the names and emails of all users from the Utilisateur table.
+
+
+2) WHERE
+--------
+
+Definition:
+WHERE is used to filter records based on a condition.
+Only rows that match the condition will be returned.
+
+Syntax:
+SELECT columns
+FROM table_name
+WHERE condition;
+
+Example:
+SELECT titre, date_publication
+FROM Article
+WHERE id_utilisateur = 1;
+
+Explanation:
+This query returns only the articles written by the user with ID 1.
+
+
+Common WHERE operators:
+- =   equal
+- >   greater than
+- <   less than
+- >=  greater or equal
+- <=  less or equal
+- LIKE search pattern
+- AND / OR combine conditions
+
+
+Example using LIKE:
+SELECT titre
+FROM Article
+WHERE titre LIKE '%Database%';
+
+Explanation:
+This query finds articles whose title contains the word "Database".
+
+
+3) ORDER BY
+-----------
+
+Definition:
+ORDER BY is used to sort the result set.
+
+ASC  -> Ascending order (default)
+DESC -> Descending order
+
+Syntax:
+SELECT columns
+FROM table_name
+ORDER BY column ASC|DESC;
+
+Example:
+SELECT titre, date_publication
+FROM Article
+ORDER BY date_publication DESC;
+
+Explanation:
+This query returns articles ordered from newest to oldest.
+
+
+4) WHERE and ORDER BY together
+------------------------------
+
+Example:
+SELECT titre, date_publication
+FROM Article
+WHERE date_publication >= '2024-05-01'
+ORDER BY date_publication ASC;
+
+Explanation:
+This query returns articles published after May 1, 2024,
+ordered by publication date from oldest to newest.
+
+
+SUMMARY
+-------
+
+- SELECT   -> choose the data to display
+- WHERE    -> filter the data
+- ORDER BY -> sort the results
+
+These commands are essential in SQL and are used in almost every database project.
