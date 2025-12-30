@@ -19,8 +19,10 @@ CREATE TABLE Commentaire (
     contenu TEXT NOT NULL, 
     auteur VARCHAR(100) NOT NULL,
     date_commentaire DATE,
+    id_utilisateur INT,
     id_article INT NOT NULL,
-    FOREIGN KEY (id_article) REFERENCES Article(id_article)
+    FOREIGN KEY (id_article) REFERENCES Article(id_article),
+    FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
 );
 
 
