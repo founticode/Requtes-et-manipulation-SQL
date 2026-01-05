@@ -83,7 +83,7 @@ FROM Article a
 JOIN Utilisateur u 
     ON a.id_utilisateur = u.id_utilisateur;
 
--- Q-2Count number of articles per user
+-- Q-2 Count number of articles per user
 SELECT 
     u.nom,
     COUNT(a.id_article) AS total_articles

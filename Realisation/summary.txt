@@ -1,0 +1,112 @@
+BLOG DATABASE – SQL PRACTICE SUMMARY
+===================================
+
+1) Project Context
+------------------
+This project is a simple Blog Database prototype.
+It contains users, articles, and comments.
+The goal is to practice SQL queries that answer
+real business questions using relational data.
+
+
+2) Main Tables Used
+-------------------
+- Utilisateur (Users)
+  * id_utilisateur (PK)
+  * nom
+  * email
+  * mot_de_passe
+
+- Article (Posts)
+  * id_article (PK)
+  * titre
+  * contenu
+  * date_publication
+  * id_utilisateur (FK → Utilisateur)
+
+- Commentaire (Comments)
+  * id_commentaire (PK)
+  * contenu
+  * auteur
+  * date_commentaire
+  * id_article (FK → Article)
+  * id_utilisateur (optional FK)
+
+
+3) Purpose of SQL Queries
+-------------------------
+SQL queries are used to answer real questions such as:
+- Who wrote each article?
+- How many articles did each user write?
+- Which comments belong to which article?
+- Which articles have multiple comments?
+
+
+4) JOIN Usage
+-------------
+JOIN is used to combine data from multiple tables.
+
+- JOIN (INNER JOIN):
+  Returns only matching rows between tables.
+
+- LEFT JOIN:
+  Returns all rows from the left table,
+  even if there is no match in the right table.
+
+JOIN is necessary because data is distributed
+across different tables.
+
+
+5) Aggregate Functions
+----------------------
+Aggregate functions help analyze data:
+- COUNT() → counts rows
+- Used with GROUP BY to summarize data
+- HAVING is used to filter grouped results
+
+Example use cases:
+- Count articles per user
+- Count comments per article
+
+
+6) GROUP BY and HAVING
+----------------------
+- GROUP BY groups rows by a column (e.g. article, user)
+- HAVING filters groups after aggregation
+- WHERE filters rows before grouping
+
+These clauses are essential for statistics
+and data analysis.
+
+
+7) Real Business Questions Answered
+-----------------------------------
+- List articles with their authors
+- Count how many articles each user wrote
+- Display comments with article titles
+- Find articles with more than one comment
+
+These queries reflect real needs
+in a blog or content management system.
+
+
+8) Data Integrity and Relations
+-------------------------------
+Foreign Keys ensure data consistency:
+- An article must belong to an existing user
+- A comment must belong to an existing article
+
+Incorrect foreign key values cause SQL errors,
+which helps protect the database.
+
+
+9) Conclusion
+-------------
+This practice demonstrates how SQL can be used
+to answer business questions by:
+- Structuring data into related tables
+- Using JOINs to combine data
+- Applying aggregation for analysis
+
+These skills are essential for real-world
+database and backend development.
